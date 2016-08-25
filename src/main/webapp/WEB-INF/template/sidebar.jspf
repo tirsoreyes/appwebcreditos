@@ -1,0 +1,26 @@
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+		<li class="sidebar-brand"><a class="loadMenu"
+			href="default/menu.jsp"><span class="glyphicon glyphicon-cog">
+					Administrar </span> </a></li>
+		<li><a class="loadMenu" href="grupo/menu.jsp"><span
+				class="glyphicon glyphicon-plus"> Grupos</span> </a></li>
+		<li><a class="loadMenu" href="usuario/menu.jsp"><span
+				class="glyphicon glyphicon-user"> Usuarios</span> </a></li>
+		<li><a class="loadMenu" href="campus/menu.jsp"><span
+				class="glyphicon glyphicon-home"> Campus</span> </a></li>
+		<li><a class="loadMenu" href="credito/menu.jsp"><span
+				class="glyphicon glyphicon-folder-open"> Cr&eacute;ditos</span> </a></li>
+		<li><a class="loadMenu" href="periodo/menu.jsp"><span
+				class="glyphicon glyphicon-calendar"> Per&iacute;odos</span> </a></li>
+		<li><a class="loadMenu" href="carrera/menu.jsp"><span
+				class="glyphicon glyphicon-briefcase"> Carreras</span> </a></li>
+		<li><a class="loadMenu" href="alumno/menu.jsp"><span
+				class="glyphicon glyphicon-education"> Alumnos</span> </a></li>
+		<li><a class="loadMenu" href="curso/menu.jsp"><span
+				class="glyphicon glyphicon-book"> Cursos</span> </a></li>
+	</ul>
+</div>
+<!-- /#sidebar-wrapper -->
