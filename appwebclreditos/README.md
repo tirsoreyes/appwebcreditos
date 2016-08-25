@@ -1,2 +1,0 @@
-# appwebclreditos
-itsa- otrosCreditos
