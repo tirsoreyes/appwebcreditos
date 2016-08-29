@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
-	content="Control Cr&acute;editos es una plataforma para administrar otros cr&acute;editos de los Alumnos">
+	content="Control otros Cr&acute;editos es una plataforma para administrar otros cr&acute;editos de los Alumnos">
 <meta name="author" content="Tirso Reyes Hernández">
 <link rel="icon" href="img/favicontec.ico">
 
