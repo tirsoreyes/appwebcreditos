@@ -4,6 +4,7 @@
 			<div class="panel-heading">
 				<span class="glyphicon glyphicon-briefcase"> Carreras</span>
 			</div>
+			<!-- hola prueba -->
 			<div class="panel-body">
 				<form role="form">
 				<div class="form-group">
