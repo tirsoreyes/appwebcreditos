@@ -28,10 +28,11 @@ public class ServletUsuarioLogout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-HttpSession httpSession = request.getSession();
+
+		HttpSession httpSession = request.getSession();
 		
-		httpSession.removeAttribute("idUsuario");
-		httpSession.removeAttribute("correo");
+		
+		httpSession.removeAttribute("session");
 		
 		response.sendRedirect("/ServletUsuarioLogin");
 	}

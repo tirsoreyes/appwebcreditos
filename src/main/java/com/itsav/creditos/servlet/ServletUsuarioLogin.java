@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import com.itsav.creditos.appwebcreditos.TicketHelper;
 import com.itsav.creditos.ejb.EjbUsuario;
 import com.itsav.creditos.ejbinterface.IEjbUsuario;
+import com.itsav.creditos.jb.Sesion;
 
 
 /**
@@ -50,13 +52,26 @@ public class ServletUsuarioLogin extends HttpServlet {
 		response.setContentType("application/x-json");
 		iEjbUsuario = new EjbUsuario();
 		
+		TicketHelper th = new TicketHelper();
 		iEjbUsuario.getByUsuario(request.getParameter("txtUsuarioLogin"));
 		Map<String, String> returnMap = iEjbUsuario.login(request.getParameter("txtContrasenaLogin"));
 		
 		if("true".equals(returnMap.get("correcto"))){
 			HttpSession httpsession = request.getSession();
-			httpsession.setAttribute("usuario", iEjbUsuario.getUsuario().getEmail());
-			httpsession.setAttribute("idUsuario", iEjbUsuario.getUsuario().getIdUsuario());
+			Sesion jbSesion = new Sesion();
+			
+			jbSesion.setApellidoMaterno(iEjbUsuario.getUsuario().getApellidoMaterno());
+			jbSesion.setApellidoPaterno(iEjbUsuario.getUsuario().getApellidoPaterno());
+			jbSesion.setEmail(iEjbUsuario.getUsuario().getEmail());
+			jbSesion.setFechaAlta(th.DatetoString(iEjbUsuario.getUsuario().getFechaAlta()));
+			jbSesion.setGrupo(iEjbUsuario.getUsuario().getTGrupo().getTipo());
+			jbSesion.setIdUsuario(iEjbUsuario.getUsuario().getIdUsuario());
+			jbSesion.setNombre(iEjbUsuario.getUsuario().getNombre());
+			jbSesion.setSiglas(iEjbUsuario.getUsuario().getSiglas());
+			jbSesion.setUsuario(iEjbUsuario.getUsuario().getUsuario());
+			
+			httpsession.setAttribute("session", jbSesion);
+		
 		}
 		try(PrintWriter out = response.getWriter()){
 			ObjectMapper mapper = new ObjectMapper();
