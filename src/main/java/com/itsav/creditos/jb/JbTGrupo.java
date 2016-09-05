@@ -3,13 +3,13 @@ package com.itsav.creditos.jb;
 import java.util.List;
 
 
-public class TGrupo  {
+public class JbTGrupo  {
 	
 	
 	private int idGrupo;
 	private String permiso;
 	private String tipo;
-	private List<TUsuario> TUsuarios;
+	private List<JbTUsuario> TUsuarios;
 	
 	
 	public int getIdGrupo() {
@@ -30,10 +30,10 @@ public class TGrupo  {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public List<TUsuario> getTUsuarios() {
+	public List<JbTUsuario> getTUsuarios() {
 		return TUsuarios;
 	}
-	public void setTUsuarios(List<TUsuario> tUsuarios) {
+	public void setTUsuarios(List<JbTUsuario> tUsuarios) {
 		TUsuarios = tUsuarios;
 	}
 

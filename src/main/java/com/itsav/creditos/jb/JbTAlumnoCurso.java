@@ -3,24 +3,24 @@ package com.itsav.creditos.jb;
 import java.sql.Date;
 
 
-public class TAlumnoCurso  {
+public class JbTAlumnoCurso  {
 	
 	
-	private TAlumnoCursoPK id;
+	private JbTAlumnoCursoPK id;
 	private String calificacion;
 	private Date fechaAcreditado;
 	private double valorCredito;
-	private TAlumno TAlumno;
-	private TCurso TCurso;
+	private JbTAlumno TAlumno;
+	private JbTCurso TCurso;
 
-	public TAlumnoCurso() {
+	public JbTAlumnoCurso() {
 	}
 
-	public TAlumnoCursoPK getId() {
+	public JbTAlumnoCursoPK getId() {
 		return this.id;
 	}
 
-	public void setId(TAlumnoCursoPK id) {
+	public void setId(JbTAlumnoCursoPK id) {
 		this.id = id;
 	}
 
@@ -48,19 +48,19 @@ public class TAlumnoCurso  {
 		this.valorCredito = valorCredito;
 	}
 
-	public TAlumno getTAlumno() {
+	public JbTAlumno getTAlumno() {
 		return this.TAlumno;
 	}
 
-	public void setTAlumno(TAlumno TAlumno) {
+	public void setTAlumno(JbTAlumno TAlumno) {
 		this.TAlumno = TAlumno;
 	}
 
-	public TCurso getTCurso() {
+	public JbTCurso getTCurso() {
 		return this.TCurso;
 	}
 
-	public void setTCurso(TCurso TCurso) {
+	public void setTCurso(JbTCurso TCurso) {
 		this.TCurso = TCurso;
 	}
 

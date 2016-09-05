@@ -2,11 +2,11 @@ package com.itsav.creditos.jb;
 
 import java.util.List;
 
-public class TCampus {
+public class JbTCampus {
 	
 	private int idCampus;
 	private String campus;
-	private TUsuario TUsuario;
+	private JbTUsuario TUsuario;
 	
 	
 	
@@ -22,18 +22,18 @@ public class TCampus {
 	public void setCampus(String campus) {
 		this.campus = campus;
 	}
-	public TUsuario getTUsuario() {
+	public JbTUsuario getTUsuario() {
 		return TUsuario;
 	}
-	public void setTUsuario(TUsuario tUsuario) {
+	public void setTUsuario(JbTUsuario tUsuario) {
 		TUsuario = tUsuario;
 	}
-	public List<TCurso> getTCursos() {
+	public List<JbTCurso> getTCursos() {
 		return TCursos;
 	}
-	public void setTCursos(List<TCurso> tCursos) {
+	public void setTCursos(List<JbTCurso> tCursos) {
 		TCursos = tCursos;
 	}
-	private List<TCurso> TCursos;
+	private List<JbTCurso> TCursos;
 
 }

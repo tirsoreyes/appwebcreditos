@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 
-public class TUsuario  {
+public class JbTUsuario  {
 	
 	private int idUsuario;
 	private String apellidoMaterno;
@@ -16,9 +16,9 @@ public class TUsuario  {
 	private String password;
 	private String siglas;
 	private String usuario;
-	private List<TCampus> TCampuses;
-	private List<TCurso> TCursos;
-	private TGrupo TGrupo;
+	private List<JbTCampus> TCampuses;
+	private List<JbTCurso> TCursos;
+	private JbTGrupo TGrupo;
 
 	
 	
@@ -84,22 +84,22 @@ public class TUsuario  {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public List<TCampus> getTCampuses() {
+	public List<JbTCampus> getTCampuses() {
 		return TCampuses;
 	}
-	public void setTCampuses(List<TCampus> tCampuses) {
+	public void setTCampuses(List<JbTCampus> tCampuses) {
 		TCampuses = tCampuses;
 	}
-	public List<TCurso> getTCursos() {
+	public List<JbTCurso> getTCursos() {
 		return TCursos;
 	}
-	public void setTCursos(List<TCurso> tCursos) {
+	public void setTCursos(List<JbTCurso> tCursos) {
 		TCursos = tCursos;
 	}
-	public TGrupo getTGrupo() {
+	public JbTGrupo getTGrupo() {
 		return TGrupo;
 	}
-	public void setTGrupo(TGrupo tGrupo) {
+	public void setTGrupo(JbTGrupo tGrupo) {
 		TGrupo = tGrupo;
 	}
 	

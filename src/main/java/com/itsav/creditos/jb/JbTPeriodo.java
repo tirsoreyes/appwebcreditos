@@ -4,12 +4,12 @@ import java.sql.Date;
 import java.util.List;
 
 
-public class TPeriodo {
+public class JbTPeriodo {
 	
 	private int idPeriodo;
 	private Date fechaFin;
 	private Date fechaInicio;
-	private List<TCurso> TCursos;
+	private List<JbTCurso> TCursos;
 	
 	
 	public int getIdPeriodo() {
@@ -30,10 +30,10 @@ public class TPeriodo {
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
-	public List<TCurso> getTCursos() {
+	public List<JbTCurso> getTCursos() {
 		return TCursos;
 	}
-	public void setTCursos(List<TCurso> tCursos) {
+	public void setTCursos(List<JbTCurso> tCursos) {
 		TCursos = tCursos;
 	}
 

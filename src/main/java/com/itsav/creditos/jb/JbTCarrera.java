@@ -2,11 +2,11 @@ package com.itsav.creditos.jb;
 
 import java.util.List;
 
-public class TCarrera {
+public class JbTCarrera {
 	
 	private int idCarrera;
 	private String nombre;
-	private List<TAlumno> TAlumnos;
+	private List<JbTAlumno> TAlumnos;
 	public int getIdCarrera() {
 		return idCarrera;
 	}
@@ -19,10 +19,10 @@ public class TCarrera {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public List<TAlumno> getTAlumnos() {
+	public List<JbTAlumno> getTAlumnos() {
 		return TAlumnos;
 	}
-	public void setTAlumnos(List<TAlumno> tAlumnos) {
+	public void setTAlumnos(List<JbTAlumno> tAlumnos) {
 		TAlumnos = tAlumnos;
 	}
 

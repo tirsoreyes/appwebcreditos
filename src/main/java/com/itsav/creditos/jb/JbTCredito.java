@@ -2,13 +2,13 @@ package com.itsav.creditos.jb;
 
 import java.util.List;
 
-public class TCredito {
+public class JbTCredito {
 	
 	
 	private int idCredito;
 	private String credito;
 	private double valorCredito;
-	private List<TCurso> TCursos;
+	private List<JbTCurso> TCursos;
 	
 	
 	public int getIdCredito() {
@@ -29,10 +29,10 @@ public class TCredito {
 	public void setValorCredito(double valorCredito) {
 		this.valorCredito = valorCredito;
 	}
-	public List<TCurso> getTCursos() {
+	public List<JbTCurso> getTCursos() {
 		return TCursos;
 	}
-	public void setTCursos(List<TCurso> tCursos) {
+	public void setTCursos(List<JbTCurso> tCursos) {
 		TCursos = tCursos;
 	}
 

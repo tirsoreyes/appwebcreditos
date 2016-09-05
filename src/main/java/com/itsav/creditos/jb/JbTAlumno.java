@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public class TAlumno {
+public class JbTAlumno {
 	private String matricula;
 	private String apellidoMaterno;
 	private String apellidoPaterno;
@@ -16,8 +16,8 @@ public class TAlumno {
 	private String nombre;
 	private String sexo;
 	private String sistema;
-	private TCarrera TCarrera;
-	private List<TAlumnoCurso> TAlumnoCursos;
+	private JbTCarrera TCarrera;
+	private List<JbTAlumnoCurso> TAlumnoCursos;
 	
 	
 	public String getMatricula() {
@@ -80,16 +80,16 @@ public class TAlumno {
 	public void setSistema(String sistema) {
 		this.sistema = sistema;
 	}
-	public TCarrera getTCarrera() {
+	public JbTCarrera getTCarrera() {
 		return TCarrera;
 	}
-	public void setTCarrera(TCarrera tCarrera) {
+	public void setTCarrera(JbTCarrera tCarrera) {
 		TCarrera = tCarrera;
 	}
-	public List<TAlumnoCurso> getTAlumnoCursos() {
+	public List<JbTAlumnoCurso> getTAlumnoCursos() {
 		return TAlumnoCursos;
 	}
-	public void setTAlumnoCursos(List<TAlumnoCurso> tAlumnoCursos) {
+	public void setTAlumnoCursos(List<JbTAlumnoCurso> tAlumnoCursos) {
 		TAlumnoCursos = tAlumnoCursos;
 	}
 

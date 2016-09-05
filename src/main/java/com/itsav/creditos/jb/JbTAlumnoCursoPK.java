@@ -1,12 +1,12 @@
 package com.itsav.creditos.jb;
 
-public class TAlumnoCursoPK  {
+public class JbTAlumnoCursoPK  {
 
 	private int id;
 	private String t_ALUMNO_Matricula;
 	private int t_CURSO_IdCurso;
 
-	public TAlumnoCursoPK() {
+	public JbTAlumnoCursoPK() {
 	}
 	public int getId() {
 		return this.id;
@@ -31,10 +31,10 @@ public class TAlumnoCursoPK  {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof TAlumnoCursoPK)) {
+		if (!(other instanceof JbTAlumnoCursoPK)) {
 			return false;
 		}
-		TAlumnoCursoPK castOther = (TAlumnoCursoPK)other;
+		JbTAlumnoCursoPK castOther = (JbTAlumnoCursoPK)other;
 		return 
 			(this.id == castOther.id)
 			&& this.t_ALUMNO_Matricula.equals(castOther.t_ALUMNO_Matricula)

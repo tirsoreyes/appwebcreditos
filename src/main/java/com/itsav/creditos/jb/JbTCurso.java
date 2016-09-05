@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 
-public class TCurso  {
+public class JbTCurso  {
 	
 	
 	private int idCurso;
@@ -32,43 +32,43 @@ public class TCurso  {
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
-	public List<TAlumnoCurso> getTAlumnoCursos() {
+	public List<JbTAlumnoCurso> getTAlumnoCursos() {
 		return TAlumnoCursos;
 	}
-	public void setTAlumnoCursos(List<TAlumnoCurso> tAlumnoCursos) {
+	public void setTAlumnoCursos(List<JbTAlumnoCurso> tAlumnoCursos) {
 		TAlumnoCursos = tAlumnoCursos;
 	}
-	public TCampus getTCampus() {
+	public JbTCampus getTCampus() {
 		return TCampus;
 	}
-	public void setTCampus(TCampus tCampus) {
+	public void setTCampus(JbTCampus tCampus) {
 		TCampus = tCampus;
 	}
-	public TCredito getTCredito() {
+	public JbTCredito getTCredito() {
 		return TCredito;
 	}
-	public void setTCredito(TCredito tCredito) {
+	public void setTCredito(JbTCredito tCredito) {
 		TCredito = tCredito;
 	}
-	public TPeriodo getTPeriodo() {
+	public JbTPeriodo getTPeriodo() {
 		return TPeriodo;
 	}
-	public void setTPeriodo(TPeriodo tPeriodo) {
+	public void setTPeriodo(JbTPeriodo tPeriodo) {
 		TPeriodo = tPeriodo;
 	}
-	public TUsuario getTUsuario() {
+	public JbTUsuario getTUsuario() {
 		return TUsuario;
 	}
-	public void setTUsuario(TUsuario tUsuario) {
+	public void setTUsuario(JbTUsuario tUsuario) {
 		TUsuario = tUsuario;
 	}
 	private Date fechaFin;
 	private Date fechaInicio;
 	private String horario;
-	private List<TAlumnoCurso> TAlumnoCursos;
-	private TCampus TCampus;
-	private TCredito TCredito;
-	private TPeriodo TPeriodo;
-	private TUsuario TUsuario;
+	private List<JbTAlumnoCurso> TAlumnoCursos;
+	private JbTCampus TCampus;
+	private JbTCredito TCredito;
+	private JbTPeriodo TPeriodo;
+	private JbTUsuario TUsuario;
 
 }
