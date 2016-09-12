@@ -10,7 +10,7 @@
   <name>appwebcreditos</name>
   <url>http://maven.apache.org</url>
 
-  <dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -56,17 +56,23 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-<<<<<<< HEAD
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-email</artifactId>
 			<version>1.4</version>
 		</dependency>
-=======
->>>>>>> branch 'master' of https://github.com/tirsoreyes/appwebcreditos.git
-
-
+		<dependency>
+			<groupId>com.google.maps</groupId>
+			<artifactId>google-maps-services</artifactId>
+			<version>0.1.15</version>
+		</dependency>
 	</dependencies>
+
 
   <build>
     <plugins>
