@@ -54,14 +54,14 @@ public class EjbAlumnoCurso implements IEjbAlumnoCurso {
 			et.begin();
 			iDaoAlumnoCurso.insert(em, alumnoCurso);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro insertado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -87,14 +87,14 @@ public class EjbAlumnoCurso implements IEjbAlumnoCurso {
 			et.begin();
 			iDaoAlumnoCurso.update(em, alumnoCurso);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -120,14 +120,14 @@ public class EjbAlumnoCurso implements IEjbAlumnoCurso {
 			et.begin();
 			iDaoAlumnoCurso.delete(em, alumnoCurso);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro eliminado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();

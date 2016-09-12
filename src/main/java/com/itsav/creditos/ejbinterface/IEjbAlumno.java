@@ -15,6 +15,7 @@ public interface IEjbAlumno {
 		public Map<String, String> update();
 		public Map<String, String> remove();
 		public List<TAlumno> findAll();
+		public TAlumno findByMatricula(String Matricula);
 		
 		public TAlumno getAlumno();
 		public void setAlumno(TAlumno Alumno) ;

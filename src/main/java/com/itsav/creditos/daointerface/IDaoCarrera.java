@@ -11,4 +11,5 @@ public interface IDaoCarrera {
 	public boolean insert(EntityManager em, TCarrera Carrera) throws Exception;
 	public boolean update(EntityManager em, TCarrera Carrera) throws Exception;
 	public List<TCarrera> getAllCarreras(EntityManager em) throws Exception;
+	public TCarrera findById(EntityManager em, int idCarrera) throws Exception;
 }

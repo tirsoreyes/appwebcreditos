@@ -53,14 +53,14 @@ public class EjbPeriodo implements IEjbPeriodo {
 			et.begin();
 			iDaoPeriodo.insert(em, periodo);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro insertado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -86,14 +86,14 @@ public class EjbPeriodo implements IEjbPeriodo {
 			et.begin();
 			iDaoPeriodo.update(em, periodo);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -119,14 +119,14 @@ public class EjbPeriodo implements IEjbPeriodo {
 			et.begin();
 			iDaoPeriodo.delete(em, periodo);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro eliminado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();

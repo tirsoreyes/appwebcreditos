@@ -11,15 +11,30 @@ public class JbTAlumno {
 	private String apellidoPaterno;
 	private String email;
 	private String estatus;
-	private Date fechaLiberacion;
+	private String fechaLiberacion;
 	private String liberado;
 	private String nombre;
 	private String sexo;
 	private String sistema;
 	private JbTCarrera TCarrera;
-	private List<JbTAlumnoCurso> TAlumnoCursos;
+	private List<JbTCurso> TAlumnoCursos;
 	
 	
+	
+	
+	
+	public String getFechaLiberacion() {
+		return fechaLiberacion;
+	}
+	public void setFechaLiberacion(String fechaLiberacion) {
+		this.fechaLiberacion = fechaLiberacion;
+	}
+	public List<JbTCurso> getTAlumnoCursos() {
+		return TAlumnoCursos;
+	}
+	public void setTAlumnoCursos(List<JbTCurso> tAlumnoCursos) {
+		TAlumnoCursos = tAlumnoCursos;
+	}
 	public String getMatricula() {
 		return matricula;
 	}
@@ -50,12 +65,6 @@ public class JbTAlumno {
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
-	public Date getFechaLiberacion() {
-		return fechaLiberacion;
-	}
-	public void setFechaLiberacion(Date fechaLiberacion) {
-		this.fechaLiberacion = fechaLiberacion;
-	}
 	public String getLiberado() {
 		return liberado;
 	}
@@ -85,12 +94,6 @@ public class JbTAlumno {
 	}
 	public void setTCarrera(JbTCarrera tCarrera) {
 		TCarrera = tCarrera;
-	}
-	public List<JbTAlumnoCurso> getTAlumnoCursos() {
-		return TAlumnoCursos;
-	}
-	public void setTAlumnoCursos(List<JbTAlumnoCurso> tAlumnoCursos) {
-		TAlumnoCursos = tAlumnoCursos;
 	}
 
 }

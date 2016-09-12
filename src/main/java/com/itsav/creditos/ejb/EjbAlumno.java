@@ -16,8 +16,6 @@ import com.itsav.creditos.daointerface.IDaoAlumno;
 import com.itsav.creditos.ejbinterface.IEjbAlumno;
 import com.itsav.creditos.entity.TAlumno;
 
-
-
 @Stateless
 public class EjbAlumno implements IEjbAlumno {
 
@@ -53,14 +51,14 @@ public class EjbAlumno implements IEjbAlumno {
 			et.begin();
 			iDaoAlumno.insert(em, alumno);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro insertado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -86,14 +84,14 @@ public class EjbAlumno implements IEjbAlumno {
 			et.begin();
 			iDaoAlumno.update(em, alumno);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -119,14 +117,14 @@ public class EjbAlumno implements IEjbAlumno {
 			et.begin();
 			iDaoAlumno.delete(em, alumno);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro eliminado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -171,6 +169,42 @@ public class EjbAlumno implements IEjbAlumno {
 		}
 
 		return alumnos;
+	}
+
+	@Override
+	public TAlumno findByMatricula(String Matricula) {
+		
+		
+		try {
+			IDaoAlumno iDaoAlumno = new DaoAlumno();
+			emf = Persistence.createEntityManagerFactory("appwebcreditos");
+			em = emf.createEntityManager();
+			et = em.getTransaction();
+
+			et.begin();
+			this.alumno = iDaoAlumno.findByMatricula(em, Matricula);
+			et.commit();
+		} catch (Exception e) {
+			if (et != null) {
+				et.rollback();
+			}
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (em != null) {
+				em.close();
+				em = null;
+			}
+			if (emf != null) {
+				emf.close();
+				emf = null;
+			}
+
+			et = null;
+		}
+
+		return alumno;
+
+		
 	}
 
 }

@@ -12,4 +12,5 @@ public interface IDaoAlumno {
 	public boolean insert(EntityManager em, TAlumno Alumno) throws Exception;
 	public boolean update(EntityManager em, TAlumno Alumno) throws Exception;
 	public List<TAlumno> getAllAlumnos(EntityManager em) throws Exception;
+	public TAlumno findByMatricula (EntityManager em, String Matricula) throws Exception;
 }

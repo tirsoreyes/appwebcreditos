@@ -12,7 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="T_ALUMNO")
-@NamedQuery(name="TAlumno.findAll", query="SELECT t FROM TAlumno t")
+
+	@NamedQuery(name="TAlumno.findAll", query="SELECT t FROM TAlumno t")
 public class TAlumno implements Serializable {
 	private static final long serialVersionUID = 1L;
 

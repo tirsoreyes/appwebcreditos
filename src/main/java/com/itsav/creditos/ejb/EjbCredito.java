@@ -54,14 +54,14 @@ public class EjbCredito implements IEjbCredito {
 			et.begin();
 			iDaoCredito.insert(em, credito);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro insertado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -87,14 +87,14 @@ public class EjbCredito implements IEjbCredito {
 			et.begin();
 			iDaoCredito.update(em, credito);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -120,14 +120,14 @@ public class EjbCredito implements IEjbCredito {
 			et.begin();
 			iDaoCredito.delete(em, credito);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro eliminado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();

@@ -18,20 +18,22 @@ import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.persistence.services.jboss.JBossRuntimeServices;
 
+import com.itsav.creditos.appwebcreditos.TicketHelper;
 import com.itsav.creditos.ejb.EjbAlumno;
 import com.itsav.creditos.ejb.EjbUsuario;
 import com.itsav.creditos.ejbinterface.IEjbAlumno;
 import com.itsav.creditos.ejbinterface.IEjbUsuario;
 import com.itsav.creditos.entity.TAlumno;
 import com.itsav.creditos.jb.JbTAlumno;
+import com.itsav.creditos.jb.JbTCarrera;
 import com.itsav.creditos.jb.Sesion;
 
 
 /**
- * Servlet implementation class ServletUsuarioFindAll
+ * Servlet implementation class ServletAlumnoFindByMatricula
  */
-@WebServlet("/ServletUsuarioFindAll")
-public class ServletAlumnoFindAll extends HttpServlet {
+@WebServlet("/ServletAlumnoFindByMatricula")
+public class ServletAlumnoFindByMatricula extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private IEjbAlumno iEjbAlumno;
@@ -39,7 +41,7 @@ public class ServletAlumnoFindAll extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAlumnoFindAll() {
+    public ServletAlumnoFindByMatricula() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,6 +56,7 @@ public class ServletAlumnoFindAll extends HttpServlet {
 		response.setContentType("application/x-json");
 	
 		iEjbAlumno = new EjbAlumno();
+		TicketHelper th = new TicketHelper();
 		// control de sesion
 		 
 		 HttpSession session = request.getSession();
@@ -62,26 +65,39 @@ public class ServletAlumnoFindAll extends HttpServlet {
 		
 		
 	
-		List<TAlumno> listaAlumnos = iEjbAlumno.findAll();
-		List <JbTAlumno> jbAlumnos = new ArrayList<JbTAlumno>();
+		TAlumno tAlumno = iEjbAlumno.findByMatricula(request.getParameter("Matricula"));
 		
-		try(PrintWriter out = response.getWriter()){
+		JbTAlumno jbAlumno=new JbTAlumno();
 		
-		if(jbSesion!=null && listaAlumnos!=null){
+		if(jbSesion!=null && tAlumno!=null){
 			
-			for(TAlumno tAlumno:listaAlumnos){
-				JbTAlumno jbAlumno=new JbTAlumno();
-				
-				// falta agregar datos
-				
-				jbAlumnos.add(jbAlumno);
-			}
+				JbTCarrera jbCarrera = new JbTCarrera();
 			
+				jbCarrera.setIdCarrera(tAlumno.getTCarrera().getIdCarrera());
+				jbCarrera.setNombre(tAlumno.getTCarrera().getNombre());
+				
+				jbAlumno.setTCarrera(jbCarrera);
+				jbAlumno.setSistema(tAlumno.getSistema());
+				jbAlumno.setMatricula(tAlumno.getMatricula());
+				jbAlumno.setApellidoPaterno(tAlumno.getApellidoPaterno());
+				jbAlumno.setApellidoMaterno(tAlumno.getApellidoMaterno());
+				jbAlumno.setNombre(tAlumno.getNombre());
+				jbAlumno.setEmail(tAlumno.getEmail());
+				jbAlumno.setEstatus(tAlumno.getEstatus());
+				jbAlumno.setSexo(tAlumno.getSexo());
+				jbAlumno.setLiberado(tAlumno.getLiberado());
+				jbAlumno.setFechaLiberacion(th.DatetoString(tAlumno.getFechaLiberacion()));
+			
+			
+		}else if (jbSesion==null){
+			jbAlumno.setMatricula("-1");
 			
 		}
 		
+		
+		try(PrintWriter out = response.getWriter()){
 			ObjectMapper mapper = new ObjectMapper();
-			String jsonInString = mapper.writeValueAsString(jbAlumnos);
+			String jsonInString = mapper.writeValueAsString(jbAlumno);
 			System.out.println(jsonInString);
 			out.print(jsonInString);
 		}

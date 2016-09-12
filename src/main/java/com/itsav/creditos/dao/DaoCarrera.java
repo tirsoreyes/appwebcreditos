@@ -41,4 +41,9 @@ public class DaoCarrera implements IDaoCarrera {
 		return null;
 	}
 
+	@Override
+	public TCarrera findById(EntityManager em, int idCarrera) throws Exception {
+		return (em.find(TCarrera.class, idCarrera));
+	}
+
 }

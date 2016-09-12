@@ -54,14 +54,14 @@ public class EjbCarrera implements IEjbCarrera {
 			et.begin();
 			iDaoCarrera.insert(em, carrera);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro insertado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -87,14 +87,14 @@ public class EjbCarrera implements IEjbCarrera {
 			et.begin();
 			iDaoCarrera.update(em, carrera);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -120,14 +120,14 @@ public class EjbCarrera implements IEjbCarrera {
 			et.begin();
 			iDaoCarrera.delete(em, carrera);
 			et.commit();
-			resultMap.put("result", "true");
+			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro eliminado");
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-			resultMap.put("result", "false");
+			resultMap.put("resultado", "false");
 		} finally {
 			if (emf != null) {
 				emf.close();
@@ -172,6 +172,39 @@ public class EjbCarrera implements IEjbCarrera {
 		}
 
 		return carreras;
+	}
+
+	@Override
+	public TCarrera findById(String idCarrera) {
+		try {
+			IDaoCarrera iDaoCarrera = new DaoCarrera();
+			emf = Persistence.createEntityManagerFactory("appwebcreditos");
+			em = emf.createEntityManager();
+			et = em.getTransaction();
+
+			et.begin();
+			int idcarrera= Integer.parseInt(idCarrera);
+			this.carrera = iDaoCarrera.findById(em, idcarrera);
+			et.commit();
+		} catch (Exception e) {
+			if (et != null) {
+				et.rollback();
+			}
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (em != null) {
+				em.close();
+				em = null;
+			}
+			if (emf != null) {
+				emf.close();
+				emf = null;
+			}
+
+			et = null;
+		}
+
+		return carrera;
 	}
 
 }

@@ -15,6 +15,7 @@ public interface IEjbCarrera {
 	public Map<String, String> update();
 	public Map<String, String> remove();
 	public List<TCarrera> findAll();
+	public TCarrera findById(String idCarrera);
 	
 	public TCarrera getCarrera();
 	public void setCarrera(TCarrera Carrera) ;

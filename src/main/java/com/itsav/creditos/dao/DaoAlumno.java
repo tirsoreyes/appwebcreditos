@@ -42,4 +42,13 @@ public class DaoAlumno implements IDaoAlumno {
 		return null;
 	}
 
+	@Override
+	public TAlumno findByMatricula(EntityManager em, String Matricula) throws Exception {
+	return(em.find(TAlumno.class, Matricula));
+	
+	}
+	
+	
+	
+
 }
