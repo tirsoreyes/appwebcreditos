@@ -20,6 +20,10 @@
 
 <!-- Custom CSS -->
 <link href="css/simple-sidebar.css" rel="stylesheet">
+
+<!-- Font Awesome 4.6.3 from http://fontawesome.io -->
+<link rel="stylesheet" href="library/font-awesome-4.6.3/css/font-awesome.min.css">
+
 <link href="css/principal.css" rel="stylesheet">
 <!-- DatePicker -->
 <link href="library/datepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
