@@ -34,7 +34,7 @@ import com.itsav.creditos.jb.Sesion;
 /**
  * Servlet implementation class ServletAlumnoInsert
  */
-@WebServlet("/ServletAlumnoInsert")
+@WebServlet("/ServletAlumnoUpdate")
 public class ServletAlumnoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
