@@ -63,13 +63,15 @@ public class EjbUsuario implements IEjbUsuario {
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
 		}finally{
-			if(em != null){
-				em.close();
-			}
 			if(emf != null){
 				emf.close();
 				emf = null;
 			}
+			
+			if(em != null){
+				em.close();
+			}
+			
 			
 			et = null;
 		}
@@ -167,13 +169,16 @@ public class EjbUsuario implements IEjbUsuario {
 			System.out.println("Error: " + e.getMessage());
 			
 		}finally{
+			
 			if(em != null){
 				em.close();
+				em=null;
 			}
 			if(emf != null){
 				emf.close();
 				emf = null;
 			}
+			
 			
 			et = null;
 		}
@@ -210,6 +215,7 @@ public class EjbUsuario implements IEjbUsuario {
 		}finally{
 			if(em != null){
 				em.close();
+				em=null;
 			}
 			if(emf != null){
 				emf.close();
