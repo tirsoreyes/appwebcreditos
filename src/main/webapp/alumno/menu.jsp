@@ -45,24 +45,35 @@
 
 						<div class="form-group">
 							<label for="AlumnoSexo">Sexo:</label><br> <input
-								type="radio" name="alumnoSexo" value="male" id="AlumnoSexoM">
-							Masculino <input type="radio" name="alumnoSexo" value="female"
-								id="AlumnoSexoF"> Femenino<br>
+								type="radio" name="alumnoSexo" value="AlumnoSexoM"
+								id="AlumnoSexoM"> Masculino <input type="radio"
+								name="alumnoSexo" value="AlumnoSexoF" id="AlumnoSexoF">
+							Femenino<br>
 
 						</div>
 						<div class="form-group">
+							<label for="AlumnoStatus">Status del Alumno:</label><br> 
+							<input type="radio" name="alumnoStatus" value="AlumnoActivo" id="AlumnoActivo"> Activo 
+							<input type="radio"name="alumnoStatus" value="AlumnoBajaTemporal" id="AlumnoBajaTemporal"> Baja Temporal
+							<input type="radio" name="alumnoStatus" value="AlumnoBajaDefinitiva" id="AlumnoBajaDefinitiva"> Baja Definitiva
+							<br>
+
+						</div>
+
+						<div class="form-group">
 							<label for="AlumnoSistema">Sistema:</label><br> <input
-								type="radio" name="alumnoSistema" value="escolarizado" id="AlumnoEscolarizado">
-							Escolarizado <input type="radio" name="alumnoSistema" value="semiescolarizado"
+								type="radio" name="alumnoSistema" value="AlumnoEscolarizado"
+								id="AlumnoEscolarizado"> Escolarizado <input
+								type="radio" name="alumnoSistema" value="AlumnoSemiEscolarizado"
 								id="AlumnoSemiEscolarizado"> Semi-Escolarizado<br>
 
 						</div>
 						<div class="form-group">
-							<label for="AlumnoStatus">Status de liberación:</label><br>
-							<input type="radio" name="alumnoStatus" value="liberado"
+							<label for="AlumnoLiberacion">Status de liberación:</label><br>
+							<input type="radio" name="AlumnoLiberacion" value="AlumnoStatus1"
 								id="AlumnoStatus1"> Liberado <input type="radio"
-								name="alumnoStatus" value="noliberado" id="AlumnoStatus2"> No
-							Liberado<br>
+								name="AlumnoLiberacion" value="AlumnoStatus0" id="AlumnoStatus0">
+							No Liberado<br>
 
 						</div>
 

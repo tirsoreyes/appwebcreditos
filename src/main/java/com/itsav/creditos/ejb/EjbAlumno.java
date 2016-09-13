@@ -60,13 +60,17 @@ public class EjbAlumno implements IEjbAlumno {
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
 		} finally {
+			
+			if (em != null) {
+				em.close();
+			}
+			
 			if (emf != null) {
 				emf.close();
 				emf = null;
 			}
-			if (em != null) {
-				em.close();
-			}
+			
+			
 			et = null;
 		}
 		return resultMap;
@@ -93,13 +97,14 @@ public class EjbAlumno implements IEjbAlumno {
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
 		} finally {
+			if (em != null) {
+				em.close();
+			}
 			if (emf != null) {
 				emf.close();
 				emf = null;
 			}
-			if (em != null) {
-				em.close();
-			}
+		
 			et = null;
 		}
 		return resultMap;

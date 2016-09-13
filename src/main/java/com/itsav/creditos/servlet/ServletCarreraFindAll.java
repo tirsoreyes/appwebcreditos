@@ -19,27 +19,31 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.persistence.services.jboss.JBossRuntimeServices;
 
 import com.itsav.creditos.ejb.EjbAlumno;
+import com.itsav.creditos.ejb.EjbCarrera;
 import com.itsav.creditos.ejb.EjbUsuario;
 import com.itsav.creditos.ejbinterface.IEjbAlumno;
+import com.itsav.creditos.ejbinterface.IEjbCarrera;
 import com.itsav.creditos.ejbinterface.IEjbUsuario;
 import com.itsav.creditos.entity.TAlumno;
+import com.itsav.creditos.entity.TCarrera;
 import com.itsav.creditos.jb.JbTAlumno;
+import com.itsav.creditos.jb.JbTCarrera;
 import com.itsav.creditos.jb.Sesion;
 
 
 /**
  * Servlet implementation class ServletUsuarioFindAll
  */
-@WebServlet("/ServletAlumnoFindAll")
-public class ServletAlumnoFindAll extends HttpServlet {
+@WebServlet("/ServletCarreraFindAll")
+public class ServletCarreraFindAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private IEjbAlumno iEjbAlumno;
+	private IEjbCarrera iEjbCarrera;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAlumnoFindAll() {
+    public ServletCarreraFindAll() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,35 +57,38 @@ public class ServletAlumnoFindAll extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/x-json");
 	
-		iEjbAlumno = new EjbAlumno();
+		iEjbCarrera = new EjbCarrera();
 		// control de sesion
 		 
 		 HttpSession session = request.getSession();
 		 Sesion jbSesion= (Sesion) session.getAttribute("session");
 		 //
 		
-		
-	
-		List<TAlumno> listaAlumnos = iEjbAlumno.findAll();
-		List <JbTAlumno> jbAlumnos = new ArrayList<JbTAlumno>();
+		List<TCarrera> listaCarreras = iEjbCarrera.findAll();
+		List <JbTCarrera> jbCarreras = new ArrayList<JbTCarrera>();
 		
 		try(PrintWriter out = response.getWriter()){
 		
-		if(jbSesion!=null && listaAlumnos!=null){
+		if(jbSesion!=null && listaCarreras!=null){
 			
-			for(TAlumno tAlumno:listaAlumnos){
-				JbTAlumno jbAlumno=new JbTAlumno();
+			for(TCarrera tCarrera:listaCarreras){
+				JbTCarrera jbCarrera=new JbTCarrera();
+				jbCarrera.setIdCarrera(tCarrera.getIdCarrera());
+				jbCarrera.setNombre(tCarrera.getNombre());
 				
-				// falta agregar datos
-				
-				jbAlumnos.add(jbAlumno);
+				jbCarreras.add(jbCarrera);
 			}
 			
+			
+		}else if(jbSesion==null){
+			JbTCarrera jbCarrera = new JbTCarrera();
+			jbCarrera.setIdCarrera(-1);
+			jbCarreras.add(jbCarrera);
 			
 		}
 		
 			ObjectMapper mapper = new ObjectMapper();
-			String jsonInString = mapper.writeValueAsString(jbAlumnos);
+			String jsonInString = mapper.writeValueAsString(jbCarreras);
 			System.out.println(jsonInString);
 			out.print(jsonInString);
 		}

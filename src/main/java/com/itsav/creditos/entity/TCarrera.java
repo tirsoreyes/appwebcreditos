@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="T_CARRERA")
-@NamedQuery(name="TCarrera.findAll", query="SELECT t FROM TCarrera t")
+@NamedQuery(name="TCarrera.findAll", query="SELECT t FROM TCarrera t ORDER BY t.nombre")
 public class TCarrera implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +25,7 @@ public class TCarrera implements Serializable {
 
 	//bi-directional many-to-one association to TAlumno
 	@OneToMany(mappedBy="TCarrera")
+	@OrderBy("apellidoPaterno, apellidoMaterno, nombre")
 	private List<TAlumno> TAlumnos;
 
 	public TCarrera() {

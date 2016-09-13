@@ -26,24 +26,26 @@ import com.itsav.creditos.ejbinterface.IEjbAlumno;
 import com.itsav.creditos.ejbinterface.IEjbCarrera;
 import com.itsav.creditos.ejbinterface.IEjbUsuario;
 import com.itsav.creditos.entity.TAlumno;
+import com.itsav.creditos.entity.TCarrera;
 import com.itsav.creditos.jb.JbTAlumno;
 import com.itsav.creditos.jb.JbTCarrera;
 import com.itsav.creditos.jb.Sesion;
 
 
 /**
- * Servlet implementation class ServletAlumnoInsert
+ * Servlet implementation class ServletAlumnoByCarrera
  */
-@WebServlet("/ServletAlumnoInsert")
-public class ServletAlumnoInsert extends HttpServlet {
+@WebServlet("/ServletAlumnoByCarrera")
+public class ServletAlumnoByCarrera extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private IEjbAlumno iEjbAlumno;
+	private IEjbCarrera iEjbCarrera;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAlumnoInsert() {
+    public ServletAlumnoByCarrera() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -58,54 +60,61 @@ public class ServletAlumnoInsert extends HttpServlet {
 		response.setContentType("application/x-json");
 	
 		iEjbAlumno = new EjbAlumno();
-		TicketHelper th = new TicketHelper();
-		Map<String,String> resultMap = new HashMap<String,String>();
+		iEjbCarrera = new EjbCarrera();
 		
+		TicketHelper th = new TicketHelper();
 		// control de sesion
 		 
 		 HttpSession session = request.getSession();
 		 Sesion jbSesion= (Sesion) session.getAttribute("session");
-		
 		 //
-		 try(PrintWriter out = response.getWriter()){
+		
+		 TCarrera tCarrera = iEjbCarrera.findById(request.getParameter("idCarrera"));
+		 
+		
+		List<JbTAlumno> jbAlumnos=new ArrayList<JbTAlumno>();
+		
+		if(jbSesion!=null && tCarrera!=null){
+			List<TAlumno> tAlumnos = tCarrera.getTAlumnos();
+			
+			 for(TAlumno tAlumno:tAlumnos){
+				 
+				 JbTCarrera jbCarrera = new JbTCarrera();
+				 JbTAlumno jbAlumno = new JbTAlumno();
+					
+					jbCarrera.setIdCarrera(tAlumno.getTCarrera().getIdCarrera());
+					jbCarrera.setNombre(tAlumno.getTCarrera().getNombre());
+					
+					jbAlumno.setTCarrera(jbCarrera);
+					jbAlumno.setSistema(tAlumno.getSistema());
+					jbAlumno.setMatricula(tAlumno.getMatricula());
+					jbAlumno.setApellidoPaterno(tAlumno.getApellidoPaterno());
+					jbAlumno.setApellidoMaterno(tAlumno.getApellidoMaterno());
+					jbAlumno.setNombre(tAlumno.getNombre());
+					jbAlumno.setEmail(tAlumno.getEmail());
+					jbAlumno.setEstatus(tAlumno.getEstatus());
+					jbAlumno.setSexo(tAlumno.getSexo());
+					jbAlumno.setLiberado(tAlumno.getLiberado());
+					if(tAlumno.getFechaLiberacion()!=null)
+					jbAlumno.setFechaLiberacion(th.DatetoString(tAlumno.getFechaLiberacion()));
 			 
-		TAlumno tAlumno = iEjbAlumno.findByMatricula(request.getParameter("txtMatricula"));
-		
-		
-		if(jbSesion!=null && tAlumno==null){
-			iEjbAlumno = new EjbAlumno();
+				 
+				 jbAlumnos.add(jbAlumno);
+			 }
 			
-			IEjbCarrera iEjbCarrera = new EjbCarrera();
-			iEjbCarrera.findById(request.getParameter("idCarrera"));
-			
-			iEjbAlumno.getAlumno().setTCarrera(iEjbCarrera.getCarrera());
-			iEjbAlumno.getAlumno().setApellidoPaterno(request.getParameter("txtPaterno"));
-			iEjbAlumno.getAlumno().setApellidoMaterno(request.getParameter("txtMaterno"));
-			iEjbAlumno.getAlumno().setNombre(request.getParameter("txtNombre"));
-			iEjbAlumno.getAlumno().setSistema(request.getParameter("txtSistema"));
-			iEjbAlumno.getAlumno().setMatricula(request.getParameter("txtMatricula"));
-			iEjbAlumno.getAlumno().setEmail(request.getParameter("txtEmail"));
-			iEjbAlumno.getAlumno().setEstatus(request.getParameter("txtStatus"));
-			iEjbAlumno.getAlumno().setSexo(request.getParameter("txtSexo"));
-			iEjbAlumno.getAlumno().setLiberado("0");
-			
-			//iEjbAlumno.getAlumno().setFechaLiberacion("");
-			resultMap = iEjbAlumno.insert();
-			
+					
 			
 		}else if (jbSesion==null){
-			resultMap.put("resultado", "false");
-			resultMap.put("mensaje", "-1");
-		}else if(tAlumno!=null){
-			resultMap.put("resultado", "false");
-			resultMap.put("mensaje", "La Matrícula ya existe en la base de datos");
+			JbTAlumno jbAlumno = new JbTAlumno();
+			jbAlumno.setMatricula("-1");
+			jbAlumnos.add(jbAlumno);
 			
 		}
 		
 		
-		
+		try(PrintWriter out = response.getWriter()){
 			ObjectMapper mapper = new ObjectMapper();
-			String jsonInString = mapper.writeValueAsString(resultMap);
+			String jsonInString = mapper.writeValueAsString(jbAlumnos);
 			System.out.println(jsonInString);
 			out.print(jsonInString);
 		}

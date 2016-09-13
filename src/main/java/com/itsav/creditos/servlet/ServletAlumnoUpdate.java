@@ -74,17 +74,15 @@ public class ServletAlumnoUpdate extends HttpServlet {
 		
 		if(jbSesion!=null && tAlumno!=null){
 			
-			IEjbCarrera iEjbCarrera = new EjbCarrera();
-			iEjbCarrera.findById(request.getParameter("idCarrera"));
 			
 			
-			iEjbAlumno.getAlumno().setTCarrera(iEjbCarrera.getCarrera());
-			iEjbAlumno.getAlumno().setApellidoPaterno(request.getParameter("txtApellidoPaterno"));
-			iEjbAlumno.getAlumno().setApellidoMaterno(request.getParameter("txtApellidoMaterno"));
+			
+			iEjbAlumno.getAlumno().setApellidoPaterno(request.getParameter("txtPaterno"));
+			iEjbAlumno.getAlumno().setApellidoMaterno(request.getParameter("txtMaterno"));
 			iEjbAlumno.getAlumno().setNombre(request.getParameter("txtNombre"));
 			iEjbAlumno.getAlumno().setSistema(request.getParameter("txtSistema"));
 			iEjbAlumno.getAlumno().setEmail(request.getParameter("txtEmail"));
-			iEjbAlumno.getAlumno().setEstatus(request.getParameter("txtEstatus"));
+			iEjbAlumno.getAlumno().setEstatus(request.getParameter("txtStatus"));
 			iEjbAlumno.getAlumno().setSexo(request.getParameter("txtSexo"));
 			resultMap = iEjbAlumno.update();
 			

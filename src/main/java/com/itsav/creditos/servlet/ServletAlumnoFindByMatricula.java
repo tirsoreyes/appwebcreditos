@@ -86,6 +86,7 @@ public class ServletAlumnoFindByMatricula extends HttpServlet {
 				jbAlumno.setEstatus(tAlumno.getEstatus());
 				jbAlumno.setSexo(tAlumno.getSexo());
 				jbAlumno.setLiberado(tAlumno.getLiberado());
+				if(tAlumno.getFechaLiberacion()!=null)
 				jbAlumno.setFechaLiberacion(th.DatetoString(tAlumno.getFechaLiberacion()));
 			
 			

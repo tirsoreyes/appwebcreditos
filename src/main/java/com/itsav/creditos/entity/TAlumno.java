@@ -13,13 +13,13 @@ import java.util.List;
 @Entity
 @Table(name="T_ALUMNO")
 
-	@NamedQuery(name="TAlumno.findAll", query="SELECT t FROM TAlumno t")
+@NamedQuery(name="TAlumno.findAll", query="SELECT t FROM TAlumno t")
 public class TAlumno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="Matricula")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="Matricula", insertable=true, unique=true, nullable=false)
 	private String matricula;
 
 	@Column(name="ApellidoMaterno")
