@@ -61,14 +61,15 @@ public class EjbPeriodo implements IEjbPeriodo {
 			}
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
-		} finally {
-			if (emf != null) {
+		}finally{
+			if(em != null){
+				em.close();
+			}
+			if(emf != null){
 				emf.close();
 				emf = null;
 			}
-			if (em != null) {
-				em.close();
-			}
+			
 			et = null;
 		}
 		return resultMap;
@@ -94,14 +95,15 @@ public class EjbPeriodo implements IEjbPeriodo {
 			}
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
-		} finally {
-			if (emf != null) {
+		}finally{
+			if(em != null){
+				em.close();
+			}
+			if(emf != null){
 				emf.close();
 				emf = null;
 			}
-			if (em != null) {
-				em.close();
-			}
+			
 			et = null;
 		}
 		return resultMap;
@@ -127,14 +129,15 @@ public class EjbPeriodo implements IEjbPeriodo {
 			}
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
-		} finally {
-			if (emf != null) {
+		}finally{
+			if(em != null){
+				em.close();
+			}
+			if(emf != null){
 				emf.close();
 				emf = null;
 			}
-			if (em != null) {
-				em.close();
-			}
+			
 			et = null;
 		}
 		return resultMap;
@@ -157,16 +160,15 @@ public class EjbPeriodo implements IEjbPeriodo {
 				et.rollback();
 			}
 			System.out.println("Error: " + e.getMessage());
-		} finally {
-			if (em != null) {
+		}finally{
+			if(em != null){
 				em.close();
-				em = null;
 			}
-			if (emf != null) {
+			if(emf != null){
 				emf.close();
 				emf = null;
 			}
-
+			
 			et = null;
 		}
 
