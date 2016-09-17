@@ -1,9 +1,15 @@
 package com.itsav.creditos.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
+import javax.persistence.StoredProcedureQuery;
 import javax.persistence.TypedQuery;
+
+import org.eclipse.persistence.internal.sessions.CommitManager;
 
 import com.itsav.creditos.daointerface.IDaoAlumno;
 import com.itsav.creditos.entity.TAlumno;
@@ -46,6 +52,39 @@ public class DaoAlumno implements IDaoAlumno {
 	public TAlumno findByMatricula(EntityManager em, String Matricula) throws Exception {
 	return(em.find(TAlumno.class, Matricula));
 	
+	}
+
+	@Override
+	public boolean p_update(EntityManager em, TAlumno Alumno, int idUsuario) throws Exception {
+		try {
+			
+		
+		StoredProcedureQuery query =  em.createNamedStoredProcedureQuery("P_UPTADEALUMNO");
+		query.setParameter("idUsuari", idUsuario);
+		query.setParameter("Matricul", Alumno.getMatricula());
+		query.setParameter("ApellidoPatern", Alumno.getApellidoPaterno());
+		query.setParameter("ApellidoMatern", Alumno.getApellidoMaterno());
+		query.setParameter("Nombr", Alumno.getNombre());
+		query.setParameter("Sex", Alumno.getSexo());
+		query.setParameter("Estatu", Alumno.getEstatus());
+		query.setParameter("Sistem", Alumno.getSistema());
+		query.setParameter("Liberad", Alumno.getLiberado());
+		query.setParameter("FechaLiberacio", Alumno.getFechaLiberacion());
+		query.setParameter("Emai", Alumno.getEmail());
+		query.setParameter("T_CARRERA_IdCarrer", Alumno.getTCarrera().getIdCarrera());
+		
+		
+	
+		query.execute();
+		
+		return true;
+		
+		} catch (Exception e) {
+			return false;
+		}
+		
+		
+		
 	}
 	
 	

@@ -13,13 +13,26 @@ import java.util.List;
 @Entity
 @Table(name="T_ALUMNO")
 
+
+
+
 @NamedStoredProcedureQuery(
 		name = "P_UPTADEALUMNO", 
 		procedureName = "P_UPTADEALUMNO", 
 		parameters = { 
-			@StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "x"), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "y"), 
-			@StoredProcedureParameter(mode = ParameterMode.OUT, type = Double.class, name = "sum")
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "idUsuari"), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Matricul"), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "ApellidoPatern"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "ApellidoMatern"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Nombr"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Sex"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Estatu"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Sistem"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Liberad"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class, name = "FechaLiberacio"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Emai"),
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "T_CARRERA_IdCarrer")
+			
 		}
 	)
 
