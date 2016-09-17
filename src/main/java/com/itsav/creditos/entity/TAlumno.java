@@ -13,6 +13,16 @@ import java.util.List;
 @Entity
 @Table(name="T_ALUMNO")
 
+@NamedStoredProcedureQuery(
+		name = "P_UPTADEALUMNO", 
+		procedureName = "P_UPTADEALUMNO", 
+		parameters = { 
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "x"), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = Double.class, name = "y"), 
+			@StoredProcedureParameter(mode = ParameterMode.OUT, type = Double.class, name = "sum")
+		}
+	)
+
 @NamedQuery(name="TAlumno.findAll", query="SELECT t FROM TAlumno t")
 public class TAlumno implements Serializable {
 	private static final long serialVersionUID = 1L;
