@@ -84,7 +84,7 @@ public class ServletAlumnoUpdate extends HttpServlet {
 			iEjbAlumno.getAlumno().setEmail(request.getParameter("txtEmail"));
 			iEjbAlumno.getAlumno().setEstatus(request.getParameter("txtStatus"));
 			iEjbAlumno.getAlumno().setSexo(request.getParameter("txtSexo"));
-			resultMap = iEjbAlumno.update();
+			resultMap = iEjbAlumno.update(jbSesion.getIdUsuario());
 			
 			
 		}else if (jbSesion==null){

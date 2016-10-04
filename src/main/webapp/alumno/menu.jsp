@@ -23,6 +23,7 @@
 								<option value='0'></option>
 							</select>
 						</div>
+						
 						<div class="form-group">
 							<label for="AlumnoTxtMatricula">Matrícula:</label> <input
 								type="text" class="form-control" id="AlumnoTxtMatricula"

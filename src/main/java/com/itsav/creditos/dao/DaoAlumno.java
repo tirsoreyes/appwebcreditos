@@ -59,7 +59,7 @@ public class DaoAlumno implements IDaoAlumno {
 		try {
 			
 		
-		StoredProcedureQuery query =  em.createNamedStoredProcedureQuery("P_UPTADEALUMNO");
+		StoredProcedureQuery query =  em.createNamedStoredProcedureQuery("TAlumno.P_UPTADEALUMNO");
 		query.setParameter("idUsuari", idUsuario);
 		query.setParameter("Matricul", Alumno.getMatricula());
 		query.setParameter("ApellidoPatern", Alumno.getApellidoPaterno());
@@ -73,13 +73,12 @@ public class DaoAlumno implements IDaoAlumno {
 		query.setParameter("Emai", Alumno.getEmail());
 		query.setParameter("T_CARRERA_IdCarrer", Alumno.getTCarrera().getIdCarrera());
 		
-		
-	
 		query.execute();
 		
 		return true;
 		
 		} catch (Exception e) {
+			System.out.println(e);
 			return false;
 		}
 		

@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @NamedStoredProcedureQuery(
-		name = "P_UPTADEALUMNO", 
+		name = "TAlumno.P_UPTADEALUMNO", 
 		procedureName = "P_UPTADEALUMNO", 
 		parameters = { 
 			@StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "idUsuari"), 
@@ -31,7 +31,7 @@ import java.util.List;
 			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Liberad"),
 			@StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class, name = "FechaLiberacio"),
 			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "Emai"),
-			@StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "T_CARRERA_IdCarrer")
+			@StoredProcedureParameter(mode = ParameterMode.IN, type = Integer.class, name = "T_CARRERA_IdCarrer")
 			
 		}
 	)

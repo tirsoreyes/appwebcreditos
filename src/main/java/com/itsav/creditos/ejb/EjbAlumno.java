@@ -56,6 +56,9 @@ public class EjbAlumno implements IEjbAlumno {
 		} catch (Exception e) {
 			if (et != null) {
 				et.rollback();
+				System.out.print(e);
+				resultMap.put("resultado", "false");
+				resultMap.put("mensaje", "Error el insertar el registro...");
 			}
 			System.out.println("Error: " + e.getMessage());
 			resultMap.put("resultado", "false");
@@ -77,7 +80,7 @@ public class EjbAlumno implements IEjbAlumno {
 	}
 
 	@Override
-	public Map<String, String> update() {
+	public Map<String, String> update(int idUsuario) {
 		Map<String, String> resultMap = new HashMap<String, String>();
 		try {
 			IDaoAlumno iDaoAlumno = new DaoAlumno();
@@ -86,15 +89,21 @@ public class EjbAlumno implements IEjbAlumno {
 			et = em.getTransaction();
 
 			et.begin();
-			iDaoAlumno.update(em, alumno);
+			iDaoAlumno.p_update(em, alumno, idUsuario);
+			//iDaoAlumno.update(em, alumno);
 			et.commit();
 			resultMap.put("resultado", "true");
 			resultMap.put("mensaje", "Registro actualizado");
 		} catch (Exception e) {
+			System.out.print(e);
+			e.printStackTrace();
 			if (et != null) {
 				et.rollback();
+				
 			}
 			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+			
 			resultMap.put("resultado", "false");
 		} finally {
 			if (em != null) {

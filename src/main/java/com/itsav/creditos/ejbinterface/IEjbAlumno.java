@@ -12,7 +12,7 @@ public interface IEjbAlumno {
 	
 	 
 		public Map<String, String> insert();
-		public Map<String, String> update();
+		public Map<String, String> update(int idUsuario);
 		public Map<String, String> remove();
 		public List<TAlumno> findAll();
 		public TAlumno findByMatricula(String Matricula);
